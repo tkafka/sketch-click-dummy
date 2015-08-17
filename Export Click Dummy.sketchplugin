@@ -44,6 +44,9 @@ function exportClickDummy () {
         position: absolute; \n\
         z-index: 100; \n\
       } \n\
+      a:focus { \n\
+        outline: none; \n\
+      } \n\
       body.is-highlighted a { \n\
         background-color: #0000ff; \n\
         opacity: .2; \n\
