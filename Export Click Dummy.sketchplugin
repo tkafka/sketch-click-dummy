@@ -74,7 +74,7 @@ function exportClickDummy () {
 
       var name = layer.name();
 
-      if (name === linkLayerPrefix || name.indexOf(linkLayerPrefix) !== -1) {
+      if (name === linkLayerPrefix || name.indexOf(linkLayerPrefix) === 0) {
 
         var linkTarget = name.substr(linkLayerPrefix.length);
         linkTargets.push(linkTarget);
@@ -85,12 +85,9 @@ function exportClickDummy () {
           linkTarget = '';
         }
 
-        if (typeof layer.frame === 'function') {
-          var lx = layer.frame().x();
-          var ly = layer.frame().y();
-          var lw = layer.frame().width();
-          var lh = layer.frame().height();
-          html = html + '<a href="' + linkTarget + '" style="left: ' + lx + 'px; top: ' + ly + 'px; width: ' + lw + 'px; height: ' + lh + 'px"></a>\n';
+        var frame = getLayerAbsoluteFrame(layer);
+        if (frame) {
+          html = html + '<a onmousedown="event.stopPropagation();" href="' + linkTarget + '" style="left: ' + frame.x + 'px; top: ' + frame.y + 'px; width: ' + frame.w + 'px; height: ' + frame.h + 'px" ></a>\n';
         }
       }
     }
