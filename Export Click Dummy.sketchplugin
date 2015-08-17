@@ -54,6 +54,8 @@ function exportClickDummy () {
 
   var HTML_FOOT = '</body></html>\n';
 
+  doc.showMessage('Exporting slices ...');
+
   var artboards = doc.currentPage().artboards().objectEnumerator();
 
   createFolder(exportPath);
