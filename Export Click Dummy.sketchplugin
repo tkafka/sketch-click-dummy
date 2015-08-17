@@ -1,7 +1,7 @@
 // (shift control cmd e)
 
-#import 'library.js'
-#import 'sandbox.js'
+@import 'library.js'
+@import 'sandbox.js'
 
 
 // open the system dialog to choose the export location
